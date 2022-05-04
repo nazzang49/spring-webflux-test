@@ -1,6 +1,5 @@
 package com.test;
 
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -18,7 +17,7 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 public class SampleRouter {
 
     @Bean
-    public RouterFunction<ServerResponse> route(SampleHandler sampleHandler) {
+    public RouterFunction<ServerResponse> testRoute(SampleHandler sampleHandler) {
         return RouterFunctions.route(RequestPredicates.GET("/{test}")
                 .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), sampleHandler::test);
     }
