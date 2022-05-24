@@ -18,7 +18,7 @@ public class SampleRouter {
 
     @Bean
     public RouterFunction<ServerResponse> sampleRoute(SampleHandler sampleHandler) {
-        return RouterFunctions.route(RequestPredicates.GET("/sample/{test}")
-                .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), sampleHandler::test);
+        return RouterFunctions.route()
+                .GET("/test", request -> sampleHandler.test(request)).build();
     }
 }

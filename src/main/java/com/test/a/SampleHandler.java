@@ -20,9 +20,6 @@ public class SampleHandler {
     private SampleService sampleService;
 
     public Mono<ServerResponse> test(ServerRequest serverRequest) {
-        String pathVariable = serverRequest.pathVariable("test");
-        System.out.println("path-variable : " + pathVariable);
-
         Mono<List<Integer>> test = sampleService.test();
         test.subscribe(o -> System.out.println("test : " + o));
 
